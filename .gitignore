@@ -1,0 +1,4 @@
+.vscode
+foo/target/*
+foo/cargo.lock
+foo/Cargo.toml
