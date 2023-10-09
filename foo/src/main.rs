@@ -1,5 +1,10 @@
+#![allow(dead_code)]
+
 mod player;
 mod bubulle;
+mod displayer;
+
+use displayer::displayer::*;
 
 fn main() {
     println!("Hello, world!");
@@ -11,4 +16,7 @@ fn main() {
     let player2 = player::player::Player::new("Joueur2", "Participant");
     player1.display_information();
     player2.display_information();
+
+    let mut displayer = Displayer::new();
+    displayer.render_window();
 }
