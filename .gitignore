@@ -1,2 +1,3 @@
 .vscode
 foo/target/*
+foo/target/.rustc_info.json
