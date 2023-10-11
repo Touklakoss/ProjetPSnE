@@ -18,5 +18,5 @@ fn main() {
     player2.display_information();
 
     let mut displayer = Displayer::new();
-    displayer.render_window();
+    displayer.render_main_menu();
 }
