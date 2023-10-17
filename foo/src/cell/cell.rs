@@ -15,13 +15,14 @@ pub mod bubulle{
     mod player;
 
 
-//@brief Structure Cell, contient Thread, size (i32), point_available (Mutec(i32)), ownerships (player), point_generation (i32)
+//@brief Structure Cell, contient Thread, size (i32), point_available (Mutec(i32)), ownerships (player), point_generation (i32), id (i32) entre 1 et 10
     pub struct Cell{
         handle: Arc<Mutex<Option<thread::JoinHandle<()>>>>,
         size: i32,
         pub point_available: Arc<Mutex<i32>>,
         pub ownership: player,
         point_generation: i32,
+        id: i32,
     }
 
     impl cell{
@@ -46,6 +47,7 @@ pub mod bubulle{
                 ownership,
                 point_generation,
                 handle,
+                id,
             }
         }
 
