@@ -197,8 +197,6 @@ impl Game_core {
     pub fn game_core_run(&mut self) {
         let (mq_transmitter, mq_receiver): (mpsc::Sender<stateMachine_events>, mpsc::Receiver<stateMachine_events>) = mpsc::channel();
 
-        let mut transition_tab = [[stateMachine_transition{next_state: FORGET, action: NOP }; NB_STATE as usize]; NB_EVENTS as usize];
-
         self.game_core_transition_tab_affectation();
 
         self.current_state = MAIN_MENU;
@@ -210,7 +208,7 @@ impl Game_core {
         while(self.current_state != stateMachine_state::DEAD) {
             event_received = mq_receiver.recv().unwrap();
 
-            next_transition = transition_tab[self.current_state as usize][event_received as usize];
+            next_transition = self.transition_tab[self.current_state as usize][event_received as usize];
 
             if let Some(action_fn) = game_core_action_handler[next_transition.action as usize] {
                 action_fn(&mq_transmitter);
