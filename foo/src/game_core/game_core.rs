@@ -41,6 +41,9 @@ enum stateMachine_state
     NB_STATE,
 }
 
+/*
+* Implémentation de l'équivalanence pour le type stateMachine_state 
+*/
 impl PartialEq for stateMachine_state {
     fn eq(&self, other: &Self) -> bool {
         match (self, other) {
